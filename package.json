@@ -1,0 +1,40 @@
+{
+  "name": "circle-course",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@circle-fin/w3s-pw-web-sdk": "^1.0.21",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@iconify/react": "^5.0.1",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/lab": "^5.0.0-alpha.171",
+    "@mui/material": "^5.16.0",
+    "axios": "^1.7.2",
+    "next": "14.2.4",
+    "notistack": "^3.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "styled-components": "^6.1.12",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "next-router-mock": "^0.9.13",
+    "typescript": "^5"
+  }
+}
