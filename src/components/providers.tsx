@@ -1,11 +1,9 @@
-"use client";
+// src/components/providers.tsx
+import { ReactNode } from "react";
+import { WalletProvider } from "@/context/WalletContext";
 
-import { SnackbarProvider } from "./snackbar";
-
-type Props = {
-  children: React.ReactNode;
+const Providers = ({ children }: { children: ReactNode }) => {
+  return <WalletProvider>{children}</WalletProvider>;
 };
 
-export default function Providers({ children }: Props) {
-  return <SnackbarProvider>{children}</SnackbarProvider>;
-}
+export default Providers;

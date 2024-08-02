@@ -1,5 +1,6 @@
 "use client";
-import "./home.css"
+
+import "./home.css";
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Player from "../../components/Player";
@@ -8,6 +9,7 @@ import Library from "../../components/Library";
 import Nav from "../../components/Nav";
 import data from "./data";
 import { SongType } from "../../types";
+import ClientSideWrapper from "../clientside-wrapper"; // Buraya import edin
 
 const Home: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -59,36 +61,38 @@ const Home: React.FC = () => {
   };
 
   return (
-    <AppContainer libraryStatus={libraryStatus}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        audioRef={audioRef}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        songs={songs}
-        setSongs={setSongs}
-      />
-      <Library
-        songs={songs}
-        setCurrentSong={setCurrentSong}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setSongs={setSongs}
-        libraryStatus={libraryStatus}
-      />
-      <audio
-        onLoadedMetadata={updateTimeHandler}
-        onTimeUpdate={updateTimeHandler}
-        onEnded={songEndHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-      />
-    </AppContainer>
+    <ClientSideWrapper> {/* Buraya sarın */}
+      <AppContainer libraryStatus={libraryStatus}>
+        <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+        <Song currentSong={currentSong} />
+        <Player
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+          audioRef={audioRef}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+          songs={songs}
+          setSongs={setSongs}
+        />
+        <Library
+          songs={songs}
+          setCurrentSong={setCurrentSong}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setSongs={setSongs}
+          libraryStatus={libraryStatus}
+        />
+        <audio
+          onLoadedMetadata={updateTimeHandler}
+          onTimeUpdate={updateTimeHandler}
+          onEnded={songEndHandler}
+          ref={audioRef}
+          src={currentSong.audio}
+        />
+      </AppContainer>
+    </ClientSideWrapper>
   );
 };
 

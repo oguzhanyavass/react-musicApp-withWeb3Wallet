@@ -10,11 +10,15 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useWallet } from "@/context/WalletContext";
 
 export default function WalletOps() {
   const [wallet, setWallet] = useState<any>();
   const [balance, setBalance] = useState<any>();
+  const router = useRouter();
+  const { setWalletCreated } = useWallet();
 
   const getUserWallet = async () => {
     try {
@@ -57,6 +61,8 @@ export default function WalletOps() {
     try {
       const result = await transfer();
       console.log(result);
+      setWalletCreated(true);
+      router.push("/home");
     } catch (error) {
       console.log(error);
     }

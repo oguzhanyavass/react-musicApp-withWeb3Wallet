@@ -12,7 +12,7 @@ interface NavProps {
 const Nav: React.FC<NavProps> = ({ libraryStatus, setLibraryStatus }) => {
   return (
     <NavContainer>
-      <H1 libraryStatus={libraryStatus}>Vibes</H1>
+      <H1 libraryStatus={libraryStatus}>CryptoTune</H1>
       <ButtonContainer>
         <Button onClick={() => setLibraryStatus(!libraryStatus)}>
           Library
@@ -43,6 +43,7 @@ const NavContainer = styled.div`
 `;
 
 const H1 = styled.h1<{ libraryStatus: boolean }>`
+color:#fffcf2;
   transition: all 0.5s ease;
   @media screen and (max-width: 768px) {
     visibility: ${(p) => (p.libraryStatus ? "hidden" : "visible")};
